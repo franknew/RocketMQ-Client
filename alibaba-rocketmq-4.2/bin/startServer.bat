@@ -1,0 +1,1 @@
+mqnamesrv.exe -d 9876
