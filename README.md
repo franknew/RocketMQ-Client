@@ -18,7 +18,7 @@ consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
 <br>
 consumer.setConsumerGroup(group);
 <br>
-//设置消费者端口，官方没有该功能
+//设置消费者端口，官方没有该功能。适用端口有安全限制的服务器
 <br>
 if (port > 0) consumer.setClientPort(port);
 <br>
@@ -30,7 +30,7 @@ ChainwayProducer producer = new ChainwayProducer(group);
 <br>
 producer.setNamesrvAddr(nameAddress);
 <br>
-//设置生产者端口，官方没有该功能
+//设置生产者端口，官方没有该功能。适用端口有安全限制的服务器
 <br>
 if (port > 0) producer.setClientPort(port)
 <br>
