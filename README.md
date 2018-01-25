@@ -8,7 +8,7 @@ client-ikvm-4.2为rocket-mq c#客户端dll
 <br>
 //启动推送型消费者
 <br>
-ChainwayPullConsumer consumer = new ChainwayPullConsumer();
+DefaultMQPushConsumer consumer = new DefaultMQPushConsumer();
 <br>
 consumer.setNamesrvAddr(nameAddress);
 <br>
@@ -22,11 +22,36 @@ consumer.setConsumerGroup(group);
 <br>
 if (port > 0) consumer.setClientPort(port);
 <br>
+//注册推送事件
+<br>
+consumer.registerMessageListener(new ChainwayMessageListener());
+<br>
+//启动消费者
+<br>
+consumer.start();
+<br>
+public class ChainwayMessageListener : MessageListenerConcurrently
+<br>
+{
+<br>
+
+    public ConsumeConcurrentlyStatus consumeMessage(List l, ConsumeConcurrentlyContext ccc)
+<br>
+    {
+<br>
+      //业务代码
+<br>
+    }
+<br>
+}
+<br>
+
+<br>
 <br>
 <br>
 //启动生产者
 <br>
-ChainwayProducer producer = new ChainwayProducer(group);
+DefaultMQProducer producer = new DefaultMQProducer(group);
 <br>
 producer.setNamesrvAddr(nameAddress);
 <br>
@@ -34,4 +59,12 @@ producer.setNamesrvAddr(nameAddress);
 <br>
 if (port > 0) producer.setClientPort(port)
 <br>
+//启动生产者
+<br>
+producer.start();
+<br>
+
+<br>
+<br>
+建议使用已经封装过的ChainwayMQ
 
