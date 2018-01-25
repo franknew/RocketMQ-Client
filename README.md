@@ -19,6 +19,7 @@ consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
 consumer.setConsumerGroup(group);
 <br>
 //设置消费者端口，官方没有该功能
+<br>
 if (port > 0) consumer.setClientPort(port);
 <br>
 <br>
