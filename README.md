@@ -25,11 +25,13 @@ if (port > 0) consumer.setClientPort(port);
 <br>
 <br>
 //启动生产者
+<br>
 ChainwayProducer producer = new ChainwayProducer(group);
 <br>
 producer.setNamesrvAddr(nameAddress);
 <br>
 //设置消费者端口，官方没有该功能
+<br>
 if (port > 0) producer.setClientPort(port)
 <br>
 
