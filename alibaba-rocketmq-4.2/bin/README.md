@@ -22,7 +22,8 @@
 
 * Windows平台（仅支持64位）
 
-	`mqnamesrv.exe`
+	`mqnamesrv.exe -d {port}`
+	port没有的话默认是9876
 
 ### 关闭Name Server
 	sh mqshutdown namesrv
