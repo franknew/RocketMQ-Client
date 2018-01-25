@@ -67,4 +67,6 @@ producer.start();
 <br>
 <br>
 建议使用已经封装过的ChainwayMQ
+<br>
+https://github.com/franknew/DataSync
 
