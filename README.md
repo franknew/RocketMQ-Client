@@ -63,7 +63,7 @@ if (port > 0) producer.setClientPort(port)
 <br>
 producer.start();
 <br>
-
+建议使用jdk1.8
 <br>
 <br>
 建议使用已经封装过的ChainwayMQ
