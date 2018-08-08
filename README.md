@@ -6,42 +6,42 @@
 
 ### 启动推送型消费者
 ```
-<p>DefaultMQPushConsumer consumer = new DefaultMQPushConsumer();</p>
-<p>consumer.setNamesrvAddr(nameAddress);</p>
-<p>consumer.subscribe(t, "*");</p>
-<p>consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);</p>
-<p>consumer.setConsumerGroup(group);</p>
+DefaultMQPushConsumer consumer = new DefaultMQPushConsumer();
+consumer.setNamesrvAddr(nameAddress);
+consumer.subscribe(t, "*");
+consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
+consumer.setConsumerGroup(group);
 ```
 
 ### 设置消费者端口，官方没有该功能。适用端口有安全限制的服务器
 
-`<p>if (port > 0) { consumer.setClientPort(port); }</p>`
+`if (port > 0) { consumer.setClientPort(port); }`
 
 ### 注册推送事件
 
-`<p>consumer.registerMessageListener(new ChainwayMessageListener());</p>`
+`consumer.registerMessageListener(new ChainwayMessageListener());`
 
 ### 启动消费者
 ```
-<p>consumer.start();</p>
-<p>public class ChainwayMessageListener : MessageListenerConcurrently</p>
-<p>{</p>
-    <p>public ConsumeConcurrentlyStatus consumeMessage(List l, ConsumeConcurrentlyContext ccc)</p>
-    <p>{</p>
-    <p>//业务代码</p>
-    <p>}</p>
-<p>}</p>
+consumer.start();
+public class ChainwayMessageListener : MessageListenerConcurrently
+{
+    public ConsumeConcurrentlyStatus consumeMessage(List l, ConsumeConcurrentlyContext ccc)
+    {
+    //业务代码
+    }
+}
 ```
 
 ### 启动生产者
 ```
-<p>DefaultMQProducer producer = new DefaultMQProducer(group);</p>
-<p>producer.setNamesrvAddr(nameAddress);</p>
+DefaultMQProducer producer = new DefaultMQProducer(group);
+producer.setNamesrvAddr(nameAddress);
 ```
 ### 设置生产者端口，官方没有该功能。适用端口有安全限制的服务器
-`<p>if (port > 0) producer.setClientPort(port)</p>`
+`if (port > 0) producer.setClientPort(port)`
 ### 启动生产者
-`<p>producer.start();</p>`
+`producer.start();`
 ### 建议使用jdk1.8
 ### 建议使用已经封装过的ChainwayMQ
 https://github.com/franknew/DataSync
