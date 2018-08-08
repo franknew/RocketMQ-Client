@@ -5,15 +5,11 @@ alibaba-rocketmq-4.2是rocket-mq windows服务器软件
 <br>
 client-ikvm-4.2为rocket-mq c#客户端dll
 ### 启动推送型消费者
-DefaultMQPushConsumer consumer = new DefaultMQPushConsumer();
-<br>
-consumer.setNamesrvAddr(nameAddress);
-<br>
-consumer.subscribe(t, "*");
-<br>
-consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
-<br>
-consumer.setConsumerGroup(group);
+<p>DefaultMQPushConsumer consumer = new DefaultMQPushConsumer();</p>
+<p>consumer.setNamesrvAddr(nameAddress);</p>
+<p>consumer.subscribe(t, "*");</p>
+<p>consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);</p>
+<p>consumer.setConsumerGroup(group);</p>
 ### 设置消费者端口，官方没有该功能。适用端口有安全限制的服务器
 if (port > 0) consumer.setClientPort(port);
 ### 注册推送事件
@@ -24,12 +20,10 @@ consumer.start();
 public class ChainwayMessageListener : MessageListenerConcurrently
 <br>
 {
-<br>
 
     public ConsumeConcurrentlyStatus consumeMessage(List l, ConsumeConcurrentlyContext ccc)
-<br>
     {
-### 业务代码
+    // 业务代码
     }
 <br>
 }
