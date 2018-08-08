@@ -5,12 +5,13 @@
 <p>client-ikvm-4.2为rocket-mq c#客户端dll</p>
 
 ### 启动推送型消费者
-
-`<p>DefaultMQPushConsumer consumer = new DefaultMQPushConsumer();</p>
+```
+<p>DefaultMQPushConsumer consumer = new DefaultMQPushConsumer();</p>
 <p>consumer.setNamesrvAddr(nameAddress);</p>
 <p>consumer.subscribe(t, "*");</p>
 <p>consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);</p>
-<p>consumer.setConsumerGroup(group);</p>`
+<p>consumer.setConsumerGroup(group);</p>
+```
 
 ### 设置消费者端口，官方没有该功能。适用端口有安全限制的服务器
 
@@ -21,18 +22,22 @@
 `<p>consumer.registerMessageListener(new ChainwayMessageListener());</p>`
 
 ### 启动消费者
-`<p>consumer.start();</p>
+```
+<p>consumer.start();</p>
 <p>public class ChainwayMessageListener : MessageListenerConcurrently</p>
 <p>{</p>
     <p>public ConsumeConcurrentlyStatus consumeMessage(List l, ConsumeConcurrentlyContext ccc)</p>
     <p>{</p>
     <p>//业务代码</p>
     <p>}</p>
-<p>}</p>`
+<p>}</p>
+```
 
 ### 启动生产者
-`<p>DefaultMQProducer producer = new DefaultMQProducer(group);</p>
-<p>producer.setNamesrvAddr(nameAddress);</p>`
+```
+<p>DefaultMQProducer producer = new DefaultMQProducer(group);</p>
+<p>producer.setNamesrvAddr(nameAddress);</p>
+```
 ### 设置生产者端口，官方没有该功能。适用端口有安全限制的服务器
 `<p>if (port > 0) producer.setClientPort(port)</p>`
 ### 启动生产者
