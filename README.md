@@ -5,7 +5,7 @@ alibaba-rocketmq-4.2是rocket-mq windows服务器软件
 <br>
 client-ikvm-4.2为rocket-mq c#客户端dll
 <br>
-### 启动推送型消费者
+## 启动推送型消费者
 DefaultMQPushConsumer consumer = new DefaultMQPushConsumer();
 <br>
 consumer.setNamesrvAddr(nameAddress);
@@ -15,16 +15,14 @@ consumer.subscribe(t, "*");
 consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
 <br>
 consumer.setConsumerGroup(group);
-<br>
-### 设置消费者端口，官方没有该功能。适用端口有安全限制的服务器
+## 设置消费者端口，官方没有该功能。适用端口有安全限制的服务器
 <br>
 if (port > 0) consumer.setClientPort(port);
-<br>
-### 注册推送事件
+## 注册推送事件
 <br>
 consumer.registerMessageListener(new ChainwayMessageListener());
 <br>
-### 启动消费者
+## 启动消费者
 consumer.start();
 <br>
 public class ChainwayMessageListener : MessageListenerConcurrently
@@ -36,7 +34,7 @@ public class ChainwayMessageListener : MessageListenerConcurrently
 <br>
     {
 <br>
-### 业务代码
+## 业务代码
 <br>
     }
 <br>
@@ -46,24 +44,24 @@ public class ChainwayMessageListener : MessageListenerConcurrently
 <br>
 <br>
 <br>
-### 启动生产者
+## 启动生产者
 <br>
 DefaultMQProducer producer = new DefaultMQProducer(group);
 <br>
 producer.setNamesrvAddr(nameAddress);
 <br>
-### 设置生产者端口，官方没有该功能。适用端口有安全限制的服务器
+## 设置生产者端口，官方没有该功能。适用端口有安全限制的服务器
 <br>
 if (port > 0) producer.setClientPort(port)
 <br>
-### 启动生产者
+## 启动生产者
 <br>
 producer.start();
 <br>
-### 建议使用jdk1.8
+## 建议使用jdk1.8
 <br>
 <br>
-### 建议使用已经封装过的ChainwayMQ
+## 建议使用已经封装过的ChainwayMQ
 <br>
 https://github.com/franknew/DataSync
 
