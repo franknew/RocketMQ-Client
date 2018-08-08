@@ -17,9 +17,7 @@ consumer.setConsumerGroup(group);
 ## 设置消费者端口，官方没有该功能。适用端口有安全限制的服务器
 if (port > 0) consumer.setClientPort(port);
 ## 注册推送事件
-<br>
 consumer.registerMessageListener(new ChainwayMessageListener());
-<br>
 ## 启动消费者
 consumer.start();
 <br>
@@ -35,14 +33,11 @@ public class ChainwayMessageListener : MessageListenerConcurrently
     }
 <br>
 }
-<br>
 ## 启动生产者
 DefaultMQProducer producer = new DefaultMQProducer(group);
 <br>
 producer.setNamesrvAddr(nameAddress);
-<br>
 ## 设置生产者端口，官方没有该功能。适用端口有安全限制的服务器
-<br>
 if (port > 0) producer.setClientPort(port)
 ## 启动生产者
 producer.start();
